@@ -1,5 +1,5 @@
 <main class="form-wrapper">
-  <form class="form">
+  <form (ngSubmit)="aoSubmeter()" class="form">
     <h2 class="titulo">Nova Transação</h2>
 
     <div class="campos">
@@ -15,8 +15,8 @@
       </label>
       <label class="campo-grupo">
         Valor
-        <div class="input-wapper">
-          <input type="number" min="0.01" step="0.01" placeholder="00,00" name="valor" class="campo input-valor-transacao" required>
+        <div class="input-wrapper">
+          <input [(ngModel)]="valorTransacao" type="number" min="0.01" step="0.01" placeholder="00,00" name="valor" class="campo input-valor-transacao" required>
         </div>
       </label>
 
