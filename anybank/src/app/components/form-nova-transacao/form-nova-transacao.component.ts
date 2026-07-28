@@ -15,5 +15,7 @@ export class FormNovaTransacaoComponent {
   aoSubmeter() {
     console.log(this.tipoTransacao);
     console.log(this.valorTransacao);
+    this.tipoTransacao = '';
+    this.valorTransacao = '';
 }
 }
