@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { BannerComponent } from './components/banner/banner.component'
 import { FormNovaTransacaoComponent } from "./components/form-nova-transacao/form-nova-transacao.component";
 import { Transacao } from './models/transacao';
@@ -10,7 +10,10 @@ import { Transacao } from './models/transacao';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  transacoes = signal<Transacao[]>([]);
+
   processarTransacao(transacao: Transacao){
-    console.log(transacao);
+    this.transacoes.update((listaAtual)=>[transacao, ...listaAtual]) // faz as transações mais recentes serem mostradas primeiro
+    console.log(this.transacoes())
   }
 }
