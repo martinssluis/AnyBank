@@ -26,6 +26,10 @@ export class AppComponent {
   });
 
   processarTransacao(transacao: Transacao){
-    this.transacoes.update((listaAtual)=>[transacao, ...listaAtual]) // faz as transações mais recentes serem mostradas primeiro
+    if(transacao.tipo === TipoTransacao.SAQUE && transacao.valor > this.saldo()){
+      return alert('Salso insuficiente!')
+    }
+
+    this.transacoes.update((listaAtual)=>[transacao, ...listaAtual]);
   }
 }
